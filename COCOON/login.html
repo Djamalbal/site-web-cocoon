@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - École COCOON</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); // Empêche la soumission du formulaire
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === "COCOON.15" && password === "REAL12") {
+                // Redirection vers la page d'accueil si les informations d'identification sont valides
+                window.location.href = "index.html";
+            } else {
+                // Affichage d'un message d'erreur si les informations d'identification sont incorrectes
+                document.getElementById("error-message").innerText = "Nom d'utilisateur ou mot de passe incorrect.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Connexion</h2>
+        <form onsubmit="validateLogin(event)">
+            <label for="username">Nom d'utilisateur:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Mot de passe:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Se connecter</button>
+        </form>
+        <p id="error-message" class="error-message"></p>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
